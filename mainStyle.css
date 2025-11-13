@@ -1,5 +1,6 @@
 :root {
   --light-green: #d0d8b2be;
+  --light-green-solid: #d0d8b2;
   --olive: #445033;
   --dark-olive: #333;
   --light-font-color: #fff;
@@ -22,7 +23,7 @@ body {
   background: var(--background-color);
   color: var(--dark-olive);
   margin: 0 100px;
-  margin-top: 700px;
+  margin-top: 400px;
 }
 
 /* ===== Header ===== */
@@ -31,25 +32,29 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  max-height: 700px;
+  height: 50vh;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--background-color)),
     url("Images/Designer.jpeg") center / cover no-repeat fixed;
   background-size: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0.1, 0.2);
   padding-top: 2rem;
 }
 
 /* ===== Navigation ===== */
 .navbar {
+  /* position: sticky; */
+  top: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(245, 241, 241, 0.568));
+  background: var(--light-green-solid);
   padding: 0.5rem 1rem;
+  margin-bottom: -170rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -65,16 +70,29 @@ header {
 }
 
 .nav-links a {
-  color: var(--light-font-color);
   text-decoration: none;
-  font-weight: bold;
+  color: var(--light-font-color);
+  font-size: 1.5rem;
   padding: 0.5rem 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   transition: background 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-  background: var(--light-font-color);
   color: var(--dark-olive);
+}
+.login a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease var(--background-color) 0.3s ease;
+}
+.login a:hover{
+  background: var(--background-color);
+  box-shadow: #fff 0 0 7px;
 }
 
 .menu-toggle {
@@ -121,7 +139,7 @@ main {
   background: var(--background-color);
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0.1, 0.2);
 }
 
 /* Hot Links */
@@ -162,6 +180,13 @@ main {
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
   margin: 2rem 0;
+}
+.dividerSmall {
+
+  width: 20px;
+  height: 1px;
+  background: var(--dark-olive);
+  margin: 0 0.5rem;
 }
 
 /* ===== Gallery ===== */
@@ -221,8 +246,32 @@ button.prev {
 button.next {
   right: -3rem;
 }
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+.footerStuff {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1000px;
+  gap: 3rem;
+}
+.footerStuff div {
+  flex: 1;
+}
+.footerStuff h2 {
+  margin-bottom: 0.5rem;
+}
+.footerStuff p {
+  display: flex;
+  margin: 0.3rem 0;
+}
 
-/* ===== Responsive ===== */
+
 @media (max-width: 1300px) {
   body {
     margin: 0 1rem;
@@ -268,8 +317,7 @@ button.next {
     display: block;
     
   }
-
-  .nav-links {
+    .nav-links {
     display: none;          /* sākumā paslēpta */
     flex-direction: column; /* vertikāla izvēlne */
     position: absolute;
@@ -294,5 +342,8 @@ button.next {
   #hotLinks a {
     flex: 1;
     font-size: 1.1rem;
+  }
+  .footerStuff {
+    flex-direction: column;
   }
 }
